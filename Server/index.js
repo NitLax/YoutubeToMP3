@@ -57,7 +57,8 @@ app.get('/downloadmp3', (req,res) => {
 		let title = info.title;
 		// res.header('Content-Disposition',`attachment; filename=${author}_${title}.mp3`);
   		let audioFormats = ytdl.filterFormats(info.formats, 'audioonly');
-		url2=audioFormats[1].url;
+		url2=audioFormats[0].url;
+		console.log(url2);
 		// res.redirect(url2);
 		res.render('player.ejs',{url: url2, img: ID,auth : author, tit : title});
 		// ytdl(url, {
